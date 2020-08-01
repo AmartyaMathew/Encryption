@@ -1,0 +1,42 @@
+This algorithm may be quantum resistant. Please note this is not verified to be quatum resistant. This algorithm is not yet proven to be safe for any sort of deployment yet. 
+
+Key Generation
+We assume that the plaintext is in ASCII format which includes 128 characters where each character is represented using 7 bits. We then have to select 2 parameters. It is recommended that 
+the parameters be multiples of 2. The first parameter determine our range and the second parameter will be the number of 
+substitutes available. 
+
+Let us for example choose 16 and 8. 128x16=2048. 2048 is out upper bound and 128 is our lower bound. Now what we have to do is to chose 8 numbers between 128 and 2047 (both inclusive) for 
+each ASCII character.
+
+Once a number is taken for a particular character it should not be taken again. For example is 146 is taken as a number for ‘A’ it cannot be chosen again. Since there are 128 characters 
+will be choosing 128*8=1024 characters out of 128*15=1920(since the first 128 numbers are already taken). 
+
+After our key is chosen there will still be 896 characters left which we can use for padding and inducing even more randomness. Our key size will be 11264 bits long which is much longer 
+than any modern day encryption standard. 
+
+Encryption
+
+To encrypt a message we look at each character of a plaintext message. Let us assume ‘A’ is the first character, we will simply look at our key and see the numbers we can substitute 
+in place of the ASCII value of ‘A’(65). This substitution can be completely random as the key has the information required to help us understand that the encrypted number is ‘A’. We do this
+until the entire message is encrypted. After the decryption section this paper will discuss how randomness can be introduced to the substitutions. It was mentioned after the key is chosen 
+we will have 896 characters left. We can randomly place those characters in the message as well if we wish to. Making a substitution will take constant time and we need to make substitution
+s for the whole message so the time complexity for encryption will be O(n). 
+
+Decryption 
+
+This is a symmetric key algorithm so we assume that the key is shared before hand. Now we take one character of the ciphertext and we see of that character is present in the key or not. 
+If the character is present in the key we find out to which ASCII value does it map to and we substitute that ASCII value in place of the message value. If the character is not in the key 
+it means that the value was put there as padding or to induce more randomness so we simply skip that character. Now for each character we have to find the corresponding ASCII charterer 
+which will take O(log n, base is 2). We need to do this for n characters so O(nlogn) is the final complexity. 
+
+Randomness
+To induce perfect randomness we can use irrational number like Pie or Euler's number. Irrational numbers are good for randomness as there is no fixed pattern for their digits and they are 
+essentially infinite. 
+
+
+
+
+
+
+
+
