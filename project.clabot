@@ -1,3 +1,6 @@
 {
   "contributors": ["AmartyaMathew"]
+   "message": "Not singed",
+  "label": "Signed",
+  "recheckComment": "Checking"
 }
