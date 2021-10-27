@@ -1,3 +1,4 @@
+#add some comments man!!
 import numpy as np
 import random
 a=[]#store ascii map here
