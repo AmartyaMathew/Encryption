@@ -1,5 +1,4 @@
-This algorithm may be quantum resistant. Please note this is not verified to be quantum resistant. This algorithm is not yet proven to be 
-safe for any sort of deployment yet. 
+ This algorithm is not yet proven to be safe for any sort of deployment yet. 
 
 Key Generation
 We assume that the plaintext is in ASCII format which includes 128 characters where each character is represented using 7 bits. We then have 
